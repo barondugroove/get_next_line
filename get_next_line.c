@@ -6,7 +6,7 @@
 /*   By: bchabot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 14:12:20 by bchabot           #+#    #+#             */
-/*   Updated: 2022/05/02 20:32:57 by bchabot          ###   ########.fr       */
+/*   Updated: 2022/05/03 12:55:47 by bchabot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include"get_next_line.h"
 
 int ft_has_backslash_n(char *s);
-char *ft_read(char *str, int fd, char *save);
+char *ft_read(char *str, int fd);
 
 char *get_next_line(int fd)
 {
@@ -30,7 +30,7 @@ char *get_next_line(int fd)
 	*str = 0;
 	if (save)
 		str = ft_strjoin(save, str);
-	str = ft_read(str, fd, save);
+	str = ft_read(str, fd);
 	if (!str)
 		return (free(str), NULL);
 	save = ft_substr(str, ft_has_backslash_n(str), ft_strlen(str) - ft_has_backslash_n(str));
@@ -55,7 +55,7 @@ int ft_has_backslash_n(char *s)
 	return (0);
 }
 
-char *ft_read(char *str, int fd, char *save)
+char *ft_read(char *str, int fd)
 {
 	char *buff;
 	int i;
@@ -71,7 +71,7 @@ char *ft_read(char *str, int fd, char *save)
 		buff[i] = '\0';
 		str = ft_strjoin(str, buff);
 		if (i <= 0)
-			return (free(buff),free (save), NULL);
+			return (free(buff), NULL);
 	}
 	free(buff);
 	return (str);
