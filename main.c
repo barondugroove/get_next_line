@@ -6,7 +6,7 @@
 /*   By: luserbu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 19:43:25 by luserbu           #+#    #+#             */
-/*   Updated: 2022/05/03 17:05:55 by bchabot          ###   ########.fr       */
+/*   Updated: 2022/05/04 16:22:40 by bchabot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,27 @@ int	main(void)
 	int fd;
 	fd = open("test", O_RDONLY);
 	//fd = open("42_no_nl", O_RDONLY);
+	str = get_next_line(fd);
+	printf("%s", str);
+	free(str);
+	str = get_next_line(fd);
+	printf("%s", str);
+	free(str);
+	str = get_next_line(fd);
+	printf("%s", str);
+	free(str);
+	str = get_next_line(fd);
+	printf("%s", str);
+	free(str);
+	str = get_next_line(fd);
+	printf("%s", str);
+	free(str);
+	str = get_next_line(fd);
+	printf("%s", str);
+	free(str);
+	str = get_next_line(fd);
+	printf("%s", str);
+	free(str);	
 	str = get_next_line(fd);
 	printf("%s", str);
 	free(str);

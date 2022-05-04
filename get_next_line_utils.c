@@ -6,7 +6,7 @@
 /*   By: bchabot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:11:24 by bchabot           #+#    #+#             */
-/*   Updated: 2022/05/02 20:12:24 by bchabot          ###   ########.fr       */
+/*   Updated: 2022/05/04 16:17:24 by bchabot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 	}
 	if (len >= x)
 		len = x - start;
-	buf = malloc(sizeof(char) * (len + 1));
+	buf = malloc(sizeof(char) * len + 1);
 	if (!buf)
 		return (NULL);
 	while (len-- && (start + len) <= x)
@@ -58,7 +58,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	char	*tab;
 	int		longueur;
 
-	if (!s1 || !s2)
+	if (!s1)
 		return (NULL);
 	longueur = ft_strlen(s1) + ft_strlen(s2) + 1;
 	tab = malloc(sizeof(char) * longueur);
