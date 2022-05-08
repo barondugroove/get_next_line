@@ -1,15 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bchabot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 14:12:20 by bchabot           #+#    #+#             */
-/*   Updated: 2022/05/08 17:49:56 by bchabot          ###   ########.fr       */
+/*   Updated: 2022/05/08 17:48:30 by bchabot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include<stddef.h>
+#include<stdio.h>
+#include<unistd.h>
 #include"get_next_line.h"
 
 int	ft_has_backslash_n(char *s, int param)
@@ -61,7 +64,7 @@ char	*ft_read(char *str, int fd)
 
 char	*get_next_line(int fd)
 {
-	static char	*save;
+	static char	**save;
 	char		*str;
 	char		*line;
 
@@ -71,15 +74,15 @@ char	*get_next_line(int fd)
 	*str = 0;
 	if (read(fd, str, 0) == -1 || fd < 0 || BUFFER_SIZE < 1)
 		return (free(str), NULL);
-	if (!save)
+	if (!save[fd])
 	{
-		save = malloc(sizeof(char));
-		*save = 0;
+		save[fd] = malloc(sizeof(char));
+		*save[fd] = 0;
 	}
-	str = ft_strjoin(str, save);
-	free(save);
+	str = ft_strjoin(str, save[fd]);
+	free(save[fd]);
 	str = ft_read(str, fd);
-	save = ft_substr(str, ft_has_backslash_n(str, 0), ft_strlen(str) - ft_has_backslash_n(str, 0));
+	save[fd] = ft_substr(str, ft_has_backslash_n(str, 0), ft_strlen(str) - ft_has_backslash_n(str, 0));
 	line = ft_substr(str, 0, ft_has_backslash_n(str, 0));
 	free(str);
 	return (line);
