@@ -6,13 +6,11 @@
 /*   By: bchabot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:11:24 by bchabot           #+#    #+#             */
-/*   Updated: 2022/05/08 17:46:36 by bchabot          ###   ########.fr       */
+/*   Updated: 2022/05/09 15:09:07 by bchabot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stddef.h>
-#include<stdlib.h>
-#include"get_next_line.h"
+#include"get_next_line_bonus.h"
 
 int	ft_strlen(char *s)
 {

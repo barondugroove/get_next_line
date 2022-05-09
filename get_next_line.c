@@ -6,13 +6,13 @@
 /*   By: bchabot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 14:12:20 by bchabot           #+#    #+#             */
-/*   Updated: 2022/05/08 17:49:56 by bchabot          ###   ########.fr       */
+/*   Updated: 2022/05/09 15:11:32 by bchabot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"get_next_line.h"
 
-int	ft_has_backslash_n(char *s, int param)
+int	ft_has_n(char *s, int param)
 {
 	int	i;
 
@@ -49,7 +49,7 @@ char	*ft_read(char *str, int fd)
 	if (!buff)
 		return (NULL);
 	*buff = 0;
-	while (!ft_has_backslash_n(str, 1) && i)
+	while (!ft_has_n(str, 1) && i)
 	{
 		i = read(fd, buff, BUFFER_SIZE);
 		buff[i] = '\0';
@@ -79,8 +79,8 @@ char	*get_next_line(int fd)
 	str = ft_strjoin(str, save);
 	free(save);
 	str = ft_read(str, fd);
-	save = ft_substr(str, ft_has_backslash_n(str, 0), ft_strlen(str) - ft_has_backslash_n(str, 0));
-	line = ft_substr(str, 0, ft_has_backslash_n(str, 0));
+	save = ft_substr(str, ft_has_n(str, 0), ft_strlen(str) - ft_has_n(str, 0));
+	line = ft_substr(str, 0, ft_has_n(str, 0));
 	free(str);
 	return (line);
 }
