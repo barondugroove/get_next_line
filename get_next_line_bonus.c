@@ -6,7 +6,7 @@
 /*   By: bchabot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 14:12:20 by bchabot           #+#    #+#             */
-/*   Updated: 2022/05/09 15:13:13 by bchabot          ###   ########.fr       */
+/*   Updated: 2022/05/10 16:50:22 by bchabot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,8 @@ char	*get_next_line(int fd)
 	str = ft_strjoin(str, save[fd]);
 	free(save[fd]);
 	str = ft_read(str, fd);
-	save[fd] = ft_substr(str, ft_has_n(str, 0), ft_strlen(str) - ft_has_n(str, 0));
+	save[fd] = ft_substr(str, ft_has_n(str, 0), \
+				ft_strlen(str) - ft_has_n(str, 0));
 	line = ft_substr(str, 0, ft_has_n(str, 0));
 	free(str);
 	return (line);

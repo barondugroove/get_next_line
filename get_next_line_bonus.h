@@ -6,7 +6,7 @@
 /*   By: bchabot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 15:05:44 by bchabot           #+#    #+#             */
-/*   Updated: 2022/05/09 15:13:26 by bchabot          ###   ########.fr       */
+/*   Updated: 2022/05/10 16:53:14 by bchabot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@
 # include<stddef.h>
 # include<stdlib.h>
 # include<unistd.h>
-# include<sys/types.h>
-# include<sys/stat.h>
-# include <fcntl.h> 
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
