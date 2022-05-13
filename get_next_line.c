@@ -6,7 +6,7 @@
 /*   By: bchabot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 14:12:20 by bchabot           #+#    #+#             */
-/*   Updated: 2022/05/10 15:07:15 by bchabot          ###   ########.fr       */
+/*   Updated: 2022/05/13 17:25:22 by bchabot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ char	*get_next_line(int fd)
 	if (!save)
 	{
 		save = malloc(sizeof(char));
+		if(!save)
+			return (NULL);
 		*save = 0;
 	}
 	str = ft_strjoin(str, save);
